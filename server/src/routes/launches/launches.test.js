@@ -6,10 +6,12 @@ const app = require("../../app");
 
 // TODO: our tests create/modify data
 const { mongoConnect, mongoDisconnect } = require("../../services/mongo");
+const { loadPlanetsData } = require('../../models/planets.model');
 
 describe("Launches API", () => {
   beforeAll(async () => {
     await mongoConnect();
+    await loadPlanetsData();
   });
 
   afterAll(async () => {
